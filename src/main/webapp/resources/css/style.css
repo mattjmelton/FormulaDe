@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+.container{
+    background-color: #15151e;
+}
+
+.nav-item a{
+    color: rgb(253, 231, 29);
+}
+.join{
+	margin-top: 20px;
+}
+.section{
+    color: #ffffff;
+    display: inline-block;
+    text-align: center;
+    width: 33.333%;
+    padding: 0px 20px;
+    margin-bottom: 30px;
+}
+.row h2{
+    color: #ef0202;
+    text-align: center;
+}
+.form-group{
+    width: 100%;
+    color: antiquewhite;
+}
+.navbar{
+    width: 50%;
+    justify-content: flex-end;
+    color: antiquewhite;
+
+}
+.addRacetitle {
+    color: antiquewhite;
+}
+.table{
+    border: 2px solid rgb(253, 231, 29);
+    color: antiquewhite;
+}
+.col h4 {
+    color: red;
+}
+
+.season{
+	position: relative;
+	background-color: #fef94c;
+	text-align: center;
+	min-width: 33%;
+	border: 1px solid blue;
+	padding: 10px;
+}
+.season:hover{
+	background-color: #46b2ee;
+}
+.default-link{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+.season-title{
+	color: antiquewhite;
+}
