@@ -1,5 +1,6 @@
 package com.codingdojo.formulade.controllers;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -11,43 +12,69 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.codingdojo.formulade.models.User;
 import com.codingdojo.formulade.models.Race;
 import com.codingdojo.formulade.models.RaceTrack;
+import com.codingdojo.formulade.models.User;
 import com.codingdojo.formulade.services.FormulaDeService;
+import com.codingdojo.formulade.validator.UserValidator;
 
 @Controller
 public class FormulaDeController {
 	private final FormulaDeService deService;
+	private final UserValidator userValidate;
 	
-	public FormulaDeController(FormulaDeService fdS) {
+	public FormulaDeController(FormulaDeService fdS, UserValidator uV) {
 		deService = fdS;
+		userValidate = uV;
 	}
 	//registration page
 	@RequestMapping("/registration")
 	public String registerForm(@ModelAttribute("user")User user) {
 		return "registrationPage.jsp";
 	}
+	//login page
+	@RequestMapping("/login")
+	public String login(@RequestParam(value = "error", required=false) String error, 
+						@RequestParam(value="logout", required=false) String logout, Model model) {
+		if(error != null) {
+			model.addAttribute("errorMessage", "Invalid credentials, Please try again.");
+		}
+		if(logout !=null) {
+			model.addAttribute("logoutMessage", "Logout Successful!");
+		}
+		return "loginPage.jsp";
+	}
+	//home route
+	@RequestMapping(value= {"/","/home"})
+	public String home(Principal principal, Model model) {
+//		Long userId = (Long)session.getAttribute("userId");
+//		User user = userServ.findUserById(userId);
+		String username = principal.getName();
+		model.addAttribute("currentUser",deService.findByUsername(username));
+		return "FormulaDe.jsp";
+	}
 	//post route to create user
 	@PostMapping("/registration")
 	public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result) {
-//		userValidate.validate(user, result);
+		userValidate.validate(user, result);
 		if(result.hasErrors()) {
 			return "registrationPage.jsp";
 		}else {
-			deService.saveDriver(user);
-//			userServ.saveUserWithAdminRole(user);
+//			deService.registerUser(user);
+			deService.saveWithUserRole(user);
+//			deService.saveUserWithAdminRole(user);
 //			Long userId = user.getId();
 //			session.setAttribute("userId", userId);
-			return "redirect:/season";
+			return "redirect:/login";
 		}
 	}
 	//route to display main page
-	@RequestMapping("/")
-	public String displayMain() {
-		return "FormulaDe.jsp";
-	}
+//	@RequestMapping("/")
+//	public String displayMain() {
+//		return "FormulaDe.jsp";
+//	}
 	
 	//route to display Season dashboard
 	@RequestMapping("/season")
@@ -100,6 +127,11 @@ public class FormulaDeController {
 			return "redirect:/season";
 		}
 	}
-	
+	@RequestMapping("/admin")
+	public String adminPage(Principal principal, Model model) {
+		String username = principal.getName();
+		model.addAttribute("currentUser", deService.findByUsername(username));
+		return "adminPage.jsp";
+	}
 	
 }

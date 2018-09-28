@@ -3,8 +3,11 @@ package com.codingdojo.formulade.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.codingdojo.formulade.repositories.RoleRepository;
 import com.codingdojo.formulade.models.Race;
 import com.codingdojo.formulade.models.RaceTrack;
 import com.codingdojo.formulade.models.User;
@@ -17,13 +20,41 @@ public class FormulaDeService {
 	private final UserRepository userRepo;
 	private final RaceRepository raceRepo;
 	private final RaceTrackRepository trackRepo;
+	private final RoleRepository roleRepo;
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	public FormulaDeService(UserRepository uR, RaceRepository rR, RaceTrackRepository tR) {
+	public FormulaDeService(UserRepository uR, RaceRepository rR, RaceTrackRepository tR, RoleRepository roleR, BCryptPasswordEncoder bCE) {
 		userRepo = uR;
 		raceRepo = rR;
 		trackRepo = tR;
+		roleRepo = roleR;
+		bCryptPasswordEncoder = bCE;
 	}
 	//methods for data retrieval and business logic
+	//saves user with normal user role
+		public void saveWithUserRole(User user) {
+			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+			user.setRoles(roleRepo.findByName("ROLE_USER"));
+			userRepo.save(user);
+		}
+		//saves user with Admin role
+		public void saveUserWithAdminRole(User user) {
+			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+			user.setRoles(roleRepo.findByName("ROLE_ADMIN"));
+			userRepo.save(user);
+		}
+		//find user by name
+		public User findByUsername(String username) {
+			return userRepo.findByUsername(username);
+		}
+		
+		//register the user and hash their password
+		public User registerUser(User user) {
+			String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+			user.setPassword(hashed);
+			return userRepo.save(user);
+		}
+	
 	
 	//get all users
 	public List<User> findAllDrivers(){

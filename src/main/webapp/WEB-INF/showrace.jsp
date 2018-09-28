@@ -16,6 +16,7 @@
 		<h1><c:out value="${showRace.track.track_name}"/></h1>	
 		<fmt:formatDate value="${showRace.race_date}" var="raceDate" type="date" pattern="MMMMM dd',' yyyy"/>
 			<h3><c:out value="${raceDate}"/></h3>
+		<h3>Weather Conditions: <c:out value="${showRace.weather}"/></h3>
 		<div class="row">
 			<table class="table">
 				<thead>
@@ -38,6 +39,54 @@
 						<td><h5><c:out value="${showRace.finish_grid_2.driver_name}"/></h5></td>
 						<td>12</td>
 						<td><h5><c:out value="${showRace.finish_grid_2.driver_points}"/></h5></td>
+					</tr>
+					<tr>
+						<th scope="row">3</th>
+						<td><h5><c:out value="${showRace.finish_grid_3.driver_name}"/></h5></td>
+						<td>10</td>
+						<td><h5><c:out value="${showRace.finish_grid_3.driver_points}"/></h5></td>
+					</tr>
+					<tr>
+						<th scope="row">4</th>
+						<td><h5><c:out value="${showRace.finish_grid_4.driver_name}"/></h5></td>
+						<td>8</td>
+						<td><h5><c:out value="${showRace.finish_grid_4.driver_points}"/></h5></td>
+					</tr>
+					<tr>
+						<th scope="row">5</th>
+						<td><h5><c:out value="${showRace.finish_grid_5.driver_name}"/></h5></td>
+						<td>6</td>
+						<td><h5><c:out value="${showRace.finish_grid_5.driver_points}"/></h5></td>
+					</tr>
+					<tr>
+						<th scope="row">6</th>
+						<td><h5><c:out value="${showRace.finish_grid_6.driver_name}"/></h5></td>
+						<td>5</td>
+						<td><h5><c:out value="${showRace.finish_grid_6.driver_points}"/></h5></td>
+					</tr>
+					<tr>
+						<th scope="row">7</th>
+						<td><h5><c:out value="${showRace.finish_grid_7.driver_name}"/></h5></td>
+						<td>4</td>
+						<td><h5><c:out value="${showRace.finish_grid_7.driver_points}"/></h5></td>
+					</tr>
+					<tr>
+						<th scope="row">8</th>
+						<td><h5><c:out value="${showRace.finish_grid_8.driver_name}"/></h5></td>
+						<td>3</td>
+						<td><h5><c:out value="${showRace.finish_grid_8.driver_points}"/></h5></td>
+					</tr>
+					<tr>
+						<th scope="row">9</th>
+						<td><h5><c:out value="${showRace.finish_grid_9.driver_name}"/></h5></td>
+						<td>2</td>
+						<td><h5><c:out value="${showRace.finish_grid_9.driver_points}"/></h5></td>
+					</tr>
+					<tr>
+						<th scope="row">10</th>
+						<td><h5><c:out value="${showRace.finish_grid_10.driver_name}"/></h5></td>
+						<td>1</td>
+						<td><h5><c:out value="${showRace.finish_grid_10.driver_points}"/></h5></td>
 					</tr>
 				</tbody>
 			</table>
