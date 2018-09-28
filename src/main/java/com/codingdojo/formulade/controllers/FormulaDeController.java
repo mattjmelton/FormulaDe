@@ -104,6 +104,14 @@ public class FormulaDeController {
 			return "redirect:/season";
 		}
 	}
+	//route to leaderboard
+	@RequestMapping("/leaderboard")
+	public String showLeaderboard(Model model) {
+		//need to call the get leaders desc
+		List<User> drivers = deService.getAllDriversByPoints();
+		model.addAttribute("showDrivers", drivers);
+		return "leaderboard.jsp";
+	}
 	
 	//route to Race details
 	@RequestMapping("/race/{id}")

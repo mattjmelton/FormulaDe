@@ -73,6 +73,10 @@ public class FormulaDeService {
 			return null;
 		}
 	}
+	//get all drivers by points descending
+	public List<User> getAllDriversByPoints(){
+		return userRepo.findAllByDriverPointsDesc();
+	}
 	
 	//get all races
 	public List<Race> findAllRaces(){

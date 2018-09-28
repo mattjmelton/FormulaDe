@@ -28,12 +28,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="/login">Driver Login</a>
             </li>
+            <li class="nav-item">
+            	<form action="/logout" method="POST" id="logoutForm">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					<input class="btn-secondary btn"  type="submit" value="Logout"/>
+				</form>
+            </li>
         </ul>    
         <div class="jumbotron">
                 <h1 class="display-4">Formula D&eacute;</h1>
                 <p class="lead">The emotional drama and shrewd strategy of Formula One racing--at your kitchen table.</p>
                 <hr class="my-4">
                 <a class="btn btn-primary btn-lg" href="/season" role="button">Season 2018 Races</a>
+                <a class="btn btn-primary btn-lg" href="/leaderboard" role="button">Leaderboard</a>
                 <p class="join">Join the Lake Stevens Formula D&eacute; racing league today!</p>
         </div>
         <div class="row">
