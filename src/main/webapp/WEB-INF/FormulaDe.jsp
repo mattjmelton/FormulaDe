@@ -23,9 +23,6 @@
                  <a class="nav-link" href="#">Paddock Quotes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/newRace">Add new Race</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/login">Driver Login</a>
             </li>
             <li class="nav-item">

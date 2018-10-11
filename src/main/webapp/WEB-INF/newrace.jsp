@@ -47,7 +47,7 @@
             			<h5>Starting grid positions:</h5>                	 
                 		
                 		<form:select path="start_grid_1" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>Pole Position</option>
+                			<option value="" selected>Pole Position</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -57,7 +57,7 @@
             		<div class="form-group col">
             			<h5>Finish grid positions:</h5>
                 		<form:select path="finish_grid_1" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>Race Winner!</option>
+                			<option value="" selected>Race Winner!</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -67,7 +67,7 @@
             	<div class="row">
             		<div class="form-group col">
                 		<form:select path="start_grid_2" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>2</option>
+                			<option value="" selected>2</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -76,7 +76,7 @@
             		</div>
             		<div class="form-group col">
                 		<form:select path="finish_grid_2" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>2nd place--on the podium</option>
+                			<option value="" selected>2nd place--on the podium</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -86,7 +86,7 @@
             	<div class="row">
             		<div class="form-group col">
                 		<form:select path="start_grid_3" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>3</option>
+                			<option value="" selected>3</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -95,7 +95,7 @@
             		</div>
             		<div class="form-group col">
                 		<form:select path="finish_grid_3" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>3rd place--on the podium</option>
+                			<option value="" selected>3rd place--on the podium</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -105,7 +105,7 @@
             	<div class="row">
             		<div class="form-group col">
                 		<form:select path="start_grid_4" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>4</option>
+                			<option value="" selected>4</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -114,7 +114,7 @@
             		</div>
             		<div class="form-group col">
                 		<form:select path="finish_grid_4" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>4th place</option>
+                			<option value="" selected>4th place</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -124,7 +124,7 @@
             	<div class="row">
             		<div class="form-group col">
                 		<form:select path="start_grid_5" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>5</option>
+                			<option value="" selected>5</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -133,7 +133,7 @@
             		</div>
             		<div class="form-group col">
                 		<form:select path="finish_grid_5" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>5th place</option>
+                			<option value="" selected>5th place</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -143,7 +143,7 @@
             	<div class="row">
             		<div class="form-group col">
                 		<form:select path="start_grid_6" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>6</option>
+                			<option value="" selected>6</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -152,7 +152,7 @@
             		</div>
             		<div class="form-group col">
                 		<form:select path="finish_grid_6" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>6th place</option>
+                			<option value="" selected>6th place</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -162,7 +162,7 @@
             	<div class="row">
             		<div class="form-group col">
                 		<form:select path="start_grid_7" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>7</option>
+                			<option value="" selected>7</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -171,7 +171,7 @@
             		</div>
             		<div class="form-group col">
                 		<form:select path="finish_grid_7" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>7th place</option>
+                			<option value="" selected>7th place</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -180,8 +180,9 @@
             	</div>
             	<div class="row">
             		<div class="form-group col">
+                		<form:errors path="start_grid_8"/>
                 		<form:select path="start_grid_8" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>8</option>
+                			<option value="" selected>8</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -190,7 +191,7 @@
             		</div>
             		<div class="form-group col">
                 		<form:select path="finish_grid_8" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>8th place</option>
+                			<option value="" selected>8th place</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -199,8 +200,9 @@
             	</div>
             	<div class="row">
             		<div class="form-group col">
+                		<form:errors path="start_grid_9"/>
                 		<form:select path="start_grid_9" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>9</option>
+                			<option value="" selected>9</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -209,7 +211,7 @@
             		</div>
             		<div class="form-group col">
                 		<form:select path="finish_grid_9" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>9th place</option>
+                			<option value="" selected>9th place</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -218,8 +220,9 @@
             	</div>
             	<div class="row">
             		<div class="form-group col">
+            			<form:errors path="start_grid_10"/>
                 		<form:select path="start_grid_10" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>10</option>
+                			<option value="" selected>10</option>
                 			<c:forEach items="${showDrivers}" var="driver">
                 				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
@@ -228,9 +231,9 @@
             		</div>
             		<div class="form-group col">
                 		<form:select path="finish_grid_10" class="form-control" id="exampleFormControlSelect1">
-                			<option selected>10th place</option>
+                			<option value="" selected>10th place</option>
                 			<c:forEach items="${showDrivers}" var="driver">
-                				<option value="<c:out value="${driver.id}"/>" > <c:out value="${driver.driver_name}"/></option>
+                				<option value="<c:out value="${driver.id}"/>"> <c:out value="${driver.driver_name}"/></option>
                 			</c:forEach>
                 		</form:select>
             		</div>

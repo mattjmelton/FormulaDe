@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.formulade.models.Race;
 import com.codingdojo.formulade.models.RaceTrack;
+import com.codingdojo.formulade.models.Role;
 import com.codingdojo.formulade.models.User;
 import com.codingdojo.formulade.services.FormulaDeService;
 import com.codingdojo.formulade.validator.UserValidator;
@@ -51,8 +52,8 @@ public class FormulaDeController {
 	public String home(Principal principal, Model model) {
 //		Long userId = (Long)session.getAttribute("userId");
 //		User user = userServ.findUserById(userId);
-		String username = principal.getName();
-		model.addAttribute("currentUser",deService.findByUsername(username));
+//		String username = principal.getName();
+//		model.addAttribute("currentUser",deService.findByUsername(username));
 		return "FormulaDe.jsp";
 	}
 	//post route to create user
@@ -78,14 +79,19 @@ public class FormulaDeController {
 	
 	//route to display Season dashboard
 	@RequestMapping("/season")
-	public String displaySeason(Model model) {
-		List<Race> showRaces = deService.findAllRaces();
-		model.addAttribute("showRaces",showRaces);
+	public String displaySeason(Model model, Principal principal) {
+		List<Race> showRaces = deService.findAllRaces(); //get all races
+		model.addAttribute("showRaces",showRaces);		//add to model to display races
+		String username = principal.getName();			//get user signed in and check role
+		User user = deService.findByUsername(username);
+		List<Role> role = user.getRoles();
+		String driver_auth = role.get(0).getName();		//add role to model where jsp will check if admin show the add race and track buttons.
+		model.addAttribute("driver", driver_auth);
 		return "season.jsp";
 	}
 	
 	//route to display Race create page
-	@RequestMapping("/newRace")
+	@RequestMapping("/admin/newRace")
 	public String displayNewRacePage(@ModelAttribute("newRace")Race race, Model model) {
 		List<RaceTrack> tracks = deService.findAllTracks();
 		model.addAttribute("showTracks", tracks);
@@ -97,6 +103,7 @@ public class FormulaDeController {
 	@PostMapping("/createRace")
 	public String createRace(@Valid @ModelAttribute("newRace")Race race, BindingResult result) {
 		if(result.hasErrors()) {
+			System.out.println(result);
 			return "newrace.jsp";
 		}else {
 			deService.saveRace(race);
@@ -121,7 +128,7 @@ public class FormulaDeController {
 		return "showrace.jsp";
 	}
 	//route to display Track create page
-	@RequestMapping("/newTrack")
+	@RequestMapping("/admin/newTrack")
 	public String displayNewTrackPage(@ModelAttribute("newTrack")RaceTrack racetrack) {
 		return "newtrack.jsp";
 	}
